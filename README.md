@@ -11,7 +11,7 @@ This project also explores the artistic tradition of reinterpreting sacred texts
 
 ### Future Direction
 
-In the process of building this project it became clear that the potential for this system goes beyond just generating computer science themed bible verses. It could be used for generating text based on any input text. The input text could also be from any language not just English.
+In the process of building this project it became clear that the potential for this system goes beyond just generating computer science themed bible verses. It could be used for generating text based on any input text. It could also be used to blend together any two texts that have enough overlap. The input text could also be from any language not just English.
 
 ### Gallery
 
