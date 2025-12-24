@@ -1,0 +1,58 @@
+
+Carlo AI v1.0
+
+---------------|---------------------------------------------------------------
+-h             | Displays this help screen
+-help          | 
+---------------|---------------------------------------------------------------
+-g <int>       | Sets the size of an n-gram. Must be at least 2. for 6 or
+-ng <int>      | higher, chains will have trouble finding an end. Higher
+-ngram <int>   | numbers result in more coherent text. Default is 3.
+---------------|---------------------------------------------------------------
+-l <int>       | Sets an approximate target word count for generated lines of
+-len <int>     | text. Default is 12 words.
+-length <int>  | 
+---------------|---------------------------------------------------------------
+-c <int>       | Sets how many lines of text are generated.
+-count <int>   | 
+---------------|---------------------------------------------------------------
+-stdin         | Reads a corpus of text from the standard input stream.
+---------------|---------------------------------------------------------------
+-f <path>      | Reads a corpus of text from a file at the specified path.
+-file <path>   | 
+---------------|---------------------------------------------------------------
+-u <URL>       | Reads a corpus of text from the specified URL.
+-url <URL>     | 
+---------------|---------------------------------------------------------------
+-t "<text>"    | Reads a corpus of text from a literal.
+-text "<text>" | 
+---------------|---------------------------------------------------------------
+-w <num>       | Sets the weight for a corpus of text. Weights are applied in
+-weight <num>  | the same order as the order of texts from all sources.
+               | The number is a decimal number relative to the largest
+               | corpus. Weights distort the prevalence of words in a corpus
+               | of text relative to the others.
+---------------|---------------------------------------------------------------
+-b             | Loads the King James Version of the Bible from inside the
+-bible         | program as a corpus.
+---------------|---------------------------------------------------------------
+-r <int>       | Sets the number of retries if a chain leads to a dead end
+-retries <int> | before the target length is reached.
+---------------|---------------------------------------------------------------
+
+Load two texts from files:
+$ java -jar carlo.jar -f ./corpus1.txt -f corpus2.txt
+
+Load texts from multiple sources:
+$ java -jar carlo.jar -f ./corpus1.txt -u https://example.com/corpus2.txt
+
+Evenly weights all texts:
+$ java -jar carlo.jar -w 1 -b -f corpus.txt
+$ java -jar carlo.jar -w 1 -f ./corpus1.txt -f corpus2.txt -f corpus3.txt
+
+Setting the weight of corpus 1 to 0.5 and the weight of corpus 2 to 3.5:
+$ java -jar carlo.jar -w 0.5 -w 3.5 -f corpus1.txt -f corpus2.txt
+$ java -jar carlo.jar -f corpus1.txt -w 0.5 -f corpus2.txt -w 3.5
+
+Loading text from the standard input stream:
+$ cat corpus1.txt corpus2.txt | java -jar carlo.jar
